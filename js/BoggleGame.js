@@ -427,8 +427,7 @@ function readDictFile()
     })
         .then(response => response.text())
         .then(text => {
-            var words = text.split("\r\n");
-            console.log(words);
+            var words = text.split("\n");
 
             for(let i = 0; i < words.length; i ++)
             {
@@ -442,7 +441,6 @@ function readDictFile()
                 }
             }
         });
-
 }
 
 //dictionary from https://www.luke-g.com/boggle/#theprog
