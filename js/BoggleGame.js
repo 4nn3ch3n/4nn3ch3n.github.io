@@ -50,8 +50,6 @@ function initializeOnLoad()
 {
     readDictFile();
     createLetterWithFrequencyArray();
-
-    console.log(wordDict['A']);
 }
 
 function createLetterWithFrequencyArray()
@@ -424,7 +422,7 @@ function resetVisitationForLetterNodes()
 
 function readDictFile()
 {
-    fetch('./dict.txt')
+    fetch('https://4nn3ch3n.github.io/dict.txt')
         .then(response => response.text())
         .then(text => {
             var words = text.split("\r\n");
