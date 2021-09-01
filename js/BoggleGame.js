@@ -21,7 +21,10 @@ function getScore(wordLength)
         case 7:
             return 5;
         default:
-            return 11;
+            if(wordLength > 7)
+                return 11;
+            else
+                return 0;
     }
 }
 
@@ -47,6 +50,8 @@ function initializeOnLoad()
 {
     readDictFile();
     createLetterWithFrequencyArray();
+
+    console.log(wordDict['A']);
 }
 
 function createLetterWithFrequencyArray()
@@ -419,7 +424,7 @@ function resetVisitationForLetterNodes()
 
 function readDictFile()
 {
-    fetch('dict.txt')
+    fetch('./dict.txt')
         .then(response => response.text())
         .then(text => {
             var words = text.split("\r\n");
