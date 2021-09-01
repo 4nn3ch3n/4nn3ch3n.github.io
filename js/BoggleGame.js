@@ -422,10 +422,13 @@ function resetVisitationForLetterNodes()
 
 function readDictFile()
 {
-    fetch('https://4nn3ch3n.github.io/dict.txt')
+    fetch('https://4nn3ch3n.github.io/dict.txt', {
+        method: 'GET'
+    })
         .then(response => response.text())
         .then(text => {
             var words = text.split("\r\n");
+            console.log(words);
 
             for(let i = 0; i < words.length; i ++)
             {
