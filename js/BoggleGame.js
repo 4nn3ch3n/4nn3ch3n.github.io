@@ -249,7 +249,8 @@ function addWord(event)
         var table = document.getElementById("enteredWords");
         
         //Create a table row
-        var row = document.createElement("TR");
+        //var row = document.createElement("TR");
+        var row = table.insertRow(1);
 
         //Create table row data for entered word
         var col = document.createElement("TD");
@@ -269,6 +270,9 @@ function addWord(event)
         if(enteredWords.has(capWord))
         {
             window.alert("Word has been entered before.");
+
+            //Clear the input
+            wordInput.value = "";
         }
         else
         {
@@ -290,7 +294,7 @@ function addWord(event)
             enteredWords.add(capWord);
 
             row.appendChild(col);
-            table.appendChild(row);
+            //table.appendChild(row);
 
             //Clear the input
             wordInput.value = "";
@@ -423,7 +427,13 @@ function resetVisitationForLetterNodes()
 function readDictFile()
 {
     fetch('https://4nn3ch3n.github.io/dict.txt', {
-        method: 'GET'
+        method: "GET",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization"
+          
+        }
     })
         .then(response => response.text())
         .then(text => {
