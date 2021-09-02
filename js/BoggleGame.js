@@ -291,13 +291,16 @@ function addWord(event)
 
                 //Add points to total points
                 totalPoints += getScore(wordInput.value.length);
-                
+
                 //Update total points
                 updateTotalPoints(totalPoints);
             }
             else
             {
-                col.innerHTML = "Invalid Word";
+                if(wordDict[capWord[0]].includes(capWord))
+                    col.innerHTML = "Cannot make word";
+                else
+                    col.innerHTML = "Invalid Word";
             }
 
             //Add inputted word to entered words
