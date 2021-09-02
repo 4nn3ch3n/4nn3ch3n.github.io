@@ -5,6 +5,7 @@ const lettersDict = {};
 var randomCharWithFrequency = '';
 var timer;
 var enteredWords;
+var totalPoints = 0;
 
 function getScore(wordLength)
 {
@@ -112,6 +113,9 @@ function createBoggleTable()
 
     //Clear letters array
     lettersArray = [];
+
+    //Reset total points
+    totalPoints = 0;
 
     //Delete the place holder table
     var tableParent = document.getElementById("characterTable");
@@ -284,6 +288,12 @@ function addWord(event)
                 icon.setAttribute("style", "font-size:48px;color:green");
                 icon.innerHTML = "check_circle";
                 col.appendChild(icon);
+
+                //Add points to total points
+                totalPoints += getScore(wordInput.value.length);
+                
+                //Update total points
+                updateTotalPoints(totalPoints);
             }
             else
             {
@@ -451,6 +461,12 @@ function readDictFile()
                 }
             }
         });
+}
+
+function updateTotalPoints(points)
+{
+    var totalPoints = document.getElementById("totalPoints");
+    totalPoints.innerHTML = points;
 }
 
 //dictionary from https://www.luke-g.com/boggle/#theprog
