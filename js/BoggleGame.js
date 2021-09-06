@@ -271,9 +271,10 @@ function addWord(event)
 
         var capWord = wordInput.value.toLocaleUpperCase();
 
-        if(enteredWords.has(capWord) && document.getElementsById("enableDuplicateAlert").checked)
+        if(enteredWords.has(capWord))
         {
-            window.alert("Word has been entered before.");
+            if(document.getElementsById("enableDuplicateAlert").checked)
+                window.alert("Word has been entered before.");
 
             //Clear the input
             wordInput.value = "";
