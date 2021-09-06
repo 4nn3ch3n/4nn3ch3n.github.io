@@ -273,6 +273,7 @@ function addWord(event)
 
         if(enteredWords.has(capWord))
         {
+            console.log(document.getElementById("enableDuplicateAlert").checked);
             if(document.getElementsById("enableDuplicateAlert").checked)
                 window.alert("Word has been entered before.");
 
