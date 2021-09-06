@@ -275,7 +275,9 @@ function addWord(event)
         {
             console.log(document.getElementById("enableDuplicateAlert").checked);
             if(document.getElementById("enableDuplicateAlert").checked)
+            {
                 window.alert("Word has been entered before.");
+            }
 
             //Clear the input
             wordInput.value = "";
