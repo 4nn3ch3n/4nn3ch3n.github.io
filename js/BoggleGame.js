@@ -271,7 +271,7 @@ function addWord(event)
 
         var capWord = wordInput.value.toLocaleUpperCase();
 
-        if(enteredWords.has(capWord))
+        if(enteredWords.has(capWord) && document.getElementsById("enableDuplicateAlert").checked)
         {
             window.alert("Word has been entered before.");
 
@@ -324,6 +324,25 @@ function clearEnteredWordsTable()
     
     var table = document.getElementById("enteredWords");
     table.innerHTML = '';
+
+    var flexChildren = document.querySelectorAll(".flex-child")
+    var height = 0;
+
+    //Get the largest flex child height to match table overflow
+    for(let i = 0; i < flexChildren.length; i ++)
+    {
+        console.log("Child Height: " + flexChildren[i].clientHeight);
+        if(flexChildren[i].clientHeight > height)
+            height = flexChildren[i].clientHeight;
+    }
+
+    //Get the height of the paragraph element in the flex child and subtract it from the height
+    var flexChildP = flexChildren[2].querySelector('p');
+    height -= flexChildP.clientHeight;
+
+    console.log("height: " + height);
+
+    table.setAttribute("style", "display: block; height: "+ height +"px; border: none; outline: none; overflow: scroll;");
 
     //Create a table row
     var row = document.createElement("TR");
