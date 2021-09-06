@@ -250,24 +250,6 @@ function addWord(event)
     if(event.key === "Enter")
     {
         var wordInput = document.getElementById('wordInput');
-        var table = document.getElementById("enteredWords");
-        
-        //Create a table row
-        //var row = document.createElement("TR");
-        var row = table.insertRow(1);
-
-        //Create table row data for entered word
-        var col = document.createElement("TD");
-        col.innerHTML = wordInput.value.toLocaleUpperCase();
-        row.appendChild(col);
-
-        //Create table data for points
-        col = document.createElement("TD");
-        col.innerHTML = getScore(wordInput.value.length);
-        row.appendChild(col);
-
-        //Create table data for if the word is valid
-        col = document.createElement("TD");
 
         var capWord = wordInput.value.toLocaleUpperCase();
 
@@ -284,6 +266,25 @@ function addWord(event)
         }
         else
         {
+            var table = document.getElementById("enteredWords");
+        
+            //Create a table row
+            //var row = document.createElement("TR");
+            var row = table.insertRow(1);
+
+            //Create table row data for entered word
+            var col = document.createElement("TD");
+            col.innerHTML = capWord;
+            row.appendChild(col);
+
+            //Create table data for points
+            col = document.createElement("TD");
+            col.innerHTML = getScore(wordInput.value.length);
+            row.appendChild(col);
+
+            //Create table data for if the word is valid
+            col = document.createElement("TD");
+
             //Check if word is valid
             if(validateWord(capWord))
             {
