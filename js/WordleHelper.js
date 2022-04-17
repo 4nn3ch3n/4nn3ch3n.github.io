@@ -166,7 +166,15 @@ function checkWordleTable()
 
 function readFile()
 {
-    fetch('WordsOfLength5.txt')
+	fetch('https://4nn3ch3n.github.io/WordsOfLength5.txt', {
+        method: "GET",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization"
+          
+        }
+    })
         .then(response => response.text())
         .then(text => {
             var words = text.split("\n");
