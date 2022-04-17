@@ -1,0 +1,64 @@
+html
+{
+    background-image: url('../images/IMG_20161031_131632.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    /*Needed when using doctype HTML, as it does not use the entire viewport.
+      When doctype is not specified, the page is rendered in quirks mode which will 
+      use the entire viewport.*/
+    height: 100%;
+    width: 100%;
+}
+
+header
+{
+    line-height: 0px;
+}
+
+body
+{
+    margin: 5% 10%;
+    height: 90%;
+    background-color:rgba(187, 218, 223, 0.80);
+}
+
+#body-content
+{
+    padding: 0% 5%;
+}
+
+.overlay canvas
+{
+    width: 300px;
+    height: 200px;
+    border: 1px solid white;
+}
+
+/* Overlay Anim */
+
+.overlay-content
+{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+}
+
+.overlay 
+{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+  }
+
+.overlay p
+{
+    color: white;
+    text-align: center;
+}

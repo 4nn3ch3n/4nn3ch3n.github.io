@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wordle Helper</title>
+
+        <link rel="icon" href="images/bored.png">
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/WordleHelper.css">
+
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script type="module" src="js/WordleHelper.js"></script>
+    </head>
+
+    <body>
+
+        <h1 style="text-align: center;">Wordle Helper</h1>
+
+        <nav id="navbar"></nav>
+
+        <p>
+            Select a row to enter a word for that row. You can hit backspace to delete the last typed letter. 
+            Double click on a box to go through the colors green, yellow, and green. These colors correspond
+            to the colors used in Wordle.
+        </p>
+
+        <br/><br/>
+
+        <table id="wordleTable"></table>
+
+        <br>
+
+        <div class="flex-container">
+            <div class="flex-child">
+                <h4>Possible Words</h4>
+                <p id="possibleWords"></p>
+            </div>
+            <div class="flex-child">
+                <h4>Available Letters</h4>
+                <p id="availableLetters"></p>
+            </div>
+        </div>
+
+    </body>
+</html>

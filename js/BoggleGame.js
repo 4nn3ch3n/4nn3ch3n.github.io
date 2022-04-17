@@ -29,7 +29,6 @@ function getScore(wordLength)
     }
 }
 
-
 class LetterNode
 {
     constructor(letter)
@@ -47,12 +46,19 @@ class LetterNode
     }
 }
 
+//Ready is called as soon as DOM is ready for manipulation but before images have finished loading.
+$(document).ready(function()
+{	
+	$("#navbar").load("nav.html");
+});
+
 function initializeOnLoad()
 {
     readDictFile();
     createLetterWithFrequencyArray();
 }
 
+//Letter distribution from https://boardgamegeek.com/thread/300883/letter-distribution
 function createLetterWithFrequencyArray()
 {
     helperAddLetter('A', 12);
@@ -110,6 +116,10 @@ function createBoggleTable()
 {
     //Clear timer
     stopTimer();
+
+    //Disable the word input element
+    var wordInput = document.getElementById('wordInput');
+    wordInput.setAttribute('disabled', true);
 
     //Clear letters array
     lettersArray = [];

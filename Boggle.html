@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Boggle Game</title>
+
+    <link rel="icon" href="./images/bored.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/BoggleGame.css">
+    <link rel="stylesheet" href="css/nav.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/BoggleGame.js"></script>
+
+</head>
+
+<body onload = "initializeOnLoad()">
+
+    <h1 style="text-align: center;">Boggle Game</h1>
+
+    <nav id="navbar"></nav>
+    
+    <br>
+
+    <h3>Rules</h3>
+    <p>
+        Each player searches for words that can be constructed from the letters of sequentially adjacent cubes, where "adjacent" cubes are those horizontally, vertically, and diagonally neighboring. 
+        Words must be at least three letters long, may include singular and plural (or other derived forms) separately, but may not use the same letter cube more than once per word. 
+        Each player records all the words they find by writing on a private sheet of paper. After three minutes have elapsed, all players must immediately stop writing and the game enters the scoring phase. 
+    </p>
+
+    <p>
+        In the scoring phase, each player reads off their list of discovered words. If two or more players wrote the same word, it is removed from all players' lists. Any player may challenge the validity of a word, 
+        in which case a previously nominated dictionary is used to verify or refute it. For all words remaining after duplicates have been eliminated, points are awarded based on the length of the word. 
+        The winner is the player whose point total is highest, with any ties typically broken by count of long words. For the purposes of scoring Qu counts as two letters: squid would score two points 
+        (for a five-letter word) despite being formed from a chain of only four cubes.
+
+        <br><br>
+        Rules and scoring are from <a href='https://en.wikipedia.org/wiki/Boggle'>https://en.wikipedia.org/wiki/Boggle</a>.
+    </p>
+
+    <br>
+    <div class="flex-container">
+        <div class="flex-child">
+            <h3>Scoring</h3>
+            <table>
+                <tr>
+                    <th>Word Length</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td>3, 4</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>8+</td>
+                    <td>11</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="flex-child">
+            <br>
+            
+            <div>
+                <label>Rows</label>
+                <input id="numRows" type="range" min="3" max="9" value="4" oninput="updateSliderOutput(this, 'outputRows')" autocomplete="off">
+                <span id="outputRows">4</span>
+            </div>
+
+            <div>
+                <label>Cols&nbsp;&nbsp;</label>
+                <input id="numCols" type="range" min="3" max="9" value="4" oninput="updateSliderOutput(this, 'outputCols')" autocomplete="off">
+                <span id="outputCols">4</span>
+            </div>
+
+            <br><br>
+
+            <button onclick='createBoggleTable()' style="margin:auto;">Generate Random Characters</button>
+
+            <br> <br>
+
+            <div id="characterTableParent">
+                <table id="characterTable" hidden><th></th></table>
+            </div>
+        </div>
+
+        <div class="flex-child">
+            <br>
+            <p>
+                <button id="timerButton" onclick='startTimer()' style="margin:auto;" disabled>Start Timer</button>
+                <label id="timer" style="margin:auto;">3m 00s</label>
+
+                <br><br>
+                <input id="wordInput" type="text" placeholder="Enter word" onkeypress="addWord(event)" autocomplete="off" disabled>
+
+                <br><br>
+            </p>
+
+            <table id="enteredWords">
+                <tr>
+                    <th>Entered Words</th>
+                    <th>Points</th>
+                    <th>Valid</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="flex-child">
+            <br><br>
+            <label>Total Points: <span id="totalPoints">0</span></label>
+            <br><br>
+            <input type="checkbox" id="enableDuplicateAlert" autocomplete="off" >
+            <label>Enable Alert for Duplicate Word</label>
+        </div>
+    </div>
+</body>
+
+</html>
