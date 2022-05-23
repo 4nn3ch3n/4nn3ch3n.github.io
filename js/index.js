@@ -109,7 +109,7 @@ function clickOnHeaderCanvas(game)
 //Add a listener when there is a click on the overlay
 document.getElementById('landingElem').addEventListener("click", function closeOverlay()
 {
-    landingElem = document.getElementById('landingElem');
+    let landingElem = document.getElementById('landingElem');
     window.cancelAnimationFrame(reqAnim);
     landingElem.remove();
 });
