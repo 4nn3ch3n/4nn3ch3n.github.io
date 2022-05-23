@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function()
     if (String(window.performance.getEntriesByType("navigation")[0].type) === "back_forward" ||
     String(window.performance.getEntriesByType("navigation")[0].type) === "reload") 
     {
-        landingElem = document.getElementById('landingElem');
+        let landingElem = document.getElementById('landingElem');
         landingElem.remove();
         return;
     }
