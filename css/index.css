@@ -21,6 +21,7 @@ body
     margin: 5% 10%;
     height: 90%;
     background-color:rgba(187, 218, 223, 0.80);
+    cursor: url('../images/normal-cursor-small.png'),auto !important;
 }
 
 #body-content
